@@ -59,8 +59,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/assets/favicon.png
-    - lib/assets/Untirta-Logo-Transparan.webp
+    - assets/favicon.png
+    - assets/Untirta-Logo-Transparan.webp
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
