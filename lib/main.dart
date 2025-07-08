@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'pages/login.dart';
-import 'pages/home.dart';
+import 'package:get/get.dart';
+import 'package:belajar2/pages/login.dart';
+import 'package:belajar2/pages/home_page.dart';
+import 'package:belajar2/pages/detail_page.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  bool isLogin = prefs.getBool('isLogin') ?? false;
-
-  runApp(MyApp(isLogin: isLogin));
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final bool isLogin;
-
-  MyApp({required this.isLogin});
-
+  const MyApp({super.key});
+ 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(  
       debugShowCheckedModeBanner: false,
-      title: 'Shared Preferences Login',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: isLogin ? HomeScreen() : LoginScreen(),
+      theme: ThemeData(useMaterial3: false),
+      home: LoginScreen(),  
+      getPages: [
+        GetPage(name: '/login', page: () => LoginScreen()),
+        GetPage(name: '/home', page: () => HomePage()),
+        GetPage(name: '/detail', page: () => DetailPage()),
+      ],
     );
   }
 }
