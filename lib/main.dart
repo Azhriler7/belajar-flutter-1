@@ -1,8 +1,7 @@
+import 'package:belajar2/pages/post.dart';
+import 'package:belajar2/pages/post_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:belajar2/pages/login.dart';
-import 'package:belajar2/pages/home_page.dart';
-import 'package:belajar2/pages/detail_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,18 +9,17 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(  
+    return GetMaterialApp(
+      title: 'Belajar API',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: false),
-      home: LoginScreen(),  
+      initialRoute: '/posts',
       getPages: [
-        GetPage(name: '/login', page: () => LoginScreen()),
-        GetPage(name: '/home', page: () => HomePage()),
-        GetPage(name: '/detail', page: () => DetailPage()),
-      ],
+        GetPage(name: '/posts', page: () => const PostPage()),
+        GetPage(name: '/post-detail', page: () => const PostDetailPage()),      
+        ],
     );
   }
 }
